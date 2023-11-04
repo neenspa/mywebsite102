@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders-db
+  labels:
+    name: orders-db
+    backstage.io/kubernetes-id: mywebsite102
+    app.kubernetes.io/name: mywebsite102
+    rht-gitops.com/janus-argocd: mywebsite102
+  namespace: margheproject
+spec:
+  ports:
+    # the port that this service should serve on
+    - port: 27017
+      targetPort: 27017
+  selector:
+    name: orders-db
